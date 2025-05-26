@@ -1,4 +1,4 @@
-🚀 What is RestContext?
+🚀 What is RestContext?  
 RestContext is a built-in Apex class that provides access to the incoming HTTP request and outgoing HTTP response when using @RestResource.
 
 ✅ Syntax  
@@ -52,7 +52,7 @@ global with sharing class MyApi {
 }
 
 
-💡 Tips
-Use JSON.deserialize() to convert request body JSON into Apex objects.
-Always validate req.params.get() values to avoid null errors.
-Set proper res.statusCode to indicate success (200/201) or failure (400/500).
+💡 Tips  
+Use JSON.deserialize() to convert request body JSON into Apex objects.  
+Always validate req.params.get() values to avoid null errors.  
+Set proper res.statusCode to indicate success (200/201) or failure (400/500).  
