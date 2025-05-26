@@ -3,6 +3,7 @@ RestContext is a built-in Apex class that provides access to the incoming HTTP r
 
 ✅ Syntax
 RestRequest req = RestContext.request;
+
 RestResponse res = RestContext.response;
 
 Imagine your Apex class is like a receptionist at a company. When someone (like a client app or Postman) sends an HTTP request, the receptionist:
