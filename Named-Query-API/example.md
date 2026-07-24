@@ -211,3 +211,105 @@ WHERE Account.Name = :accountname
 - Multiple Accounts can have the same name, which may return unexpected results.
 
 Use Account Name only when your business requirement specifically requires searching by name.
+
+---
+
+# Understanding `%20` in URLs
+
+When passing parameters in a URL, certain characters cannot be used directly. These characters must be **URL encoded**.
+
+One of the most common URL-encoded characters is:
+
+```
+%20 = Space (" ")
+```
+
+This means every space in a URL is replaced with `%20`.
+
+---
+
+## Example
+
+Normal text:
+
+```text
+Burlington Textiles Corp of America
+```
+
+URL-encoded text:
+
+```text
+Burlington%20Textiles%20Corp%20of%20America
+```
+
+Here, every `%20` represents a space.
+
+---
+
+## Why is URL Encoding Required?
+
+URLs cannot contain plain spaces. If a URL contains spaces, it may not be interpreted correctly by browsers or servers.
+
+❌ Incorrect
+
+```http
+GET /services/data/v65.0/named/query/GetRelatedCasesforAccounts?accountname=Burlington Textiles Corp of America
+```
+
+✅ Correct
+
+```http
+GET /services/data/v65.0/named/query/GetRelatedCasesforAccounts?accountname=Burlington%20Textiles%20Corp%20of%20America
+```
+
+---
+
+## Common URL Encoded Characters
+
+| Character | URL Encoded Value |
+|-----------|-------------------|
+| Space (` `) | `%20` |
+| `@` | `%40` |
+| `#` | `%23` |
+| `&` | `%26` |
+| `=` | `%3D` |
+| `?` | `%3F` |
+| `/` | `%2F` |
+| `+` | `%2B` |
+
+---
+
+## Postman Behavior
+
+When using **Postman**, you usually **do not need to manually type `%20`**.
+
+If you enter:
+
+```text
+accountname = Burlington Textiles Corp of America
+```
+
+Postman automatically converts it to:
+
+```text
+accountname=Burlington%20Textiles%20Corp%20of%20America
+```
+
+before sending the request to Salesforce.
+
+---
+
+## Best Practice
+
+- If you're manually constructing the URL, always URL-encode spaces and special characters.
+- If you're using tools like **Postman**, **Insomnia**, or most programming libraries, URL encoding is handled automatically.
+
+---
+
+## Interview Question
+
+### What does `%20` mean in a URL?
+
+**Answer:**
+
+`%20` is the URL-encoded representation of a **space character**. Since URLs cannot contain plain spaces, spaces are replaced with `%20` to ensure the URL is transmitted and interpreted correctly by web servers.
