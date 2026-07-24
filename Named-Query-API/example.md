@@ -1,4 +1,3 @@
----
 
 # Passing Parameters to a Named Query API
 
